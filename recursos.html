@@ -32,7 +32,11 @@
     /* Ajustes locales sobre la base de estilos.css */
     html { scroll-behavior: smooth; }
     a { transition: opacity 0.2s, color 0.2s; }
-    .nav__container { gap: 1rem; }
+    .nav__container {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
+    }
     .nav__cta { font-size: 0.875rem !important; padding: 0.6rem 1.2rem !important; }
     .page-hero__title { max-width: 18ch; }
     .page-hero__lead { max-width: 54ch; }
@@ -155,7 +159,7 @@
           <a href="servicios.html" class="nav__link">Servicios</a>
           <a href="recursos.html" class="nav__link nav__link--active">Recursos</a>
         </div>
-        <a href="https://tally.so/r/LZvklp" target="_blank" rel="noopener" class="btn btn--navy nav__cta">Test gratuito →</a>
+        <a href="http://test.conectarconsentido.com/?utm_source=chatgpt.com" target="_blank" rel="noopener" class="btn btn--navy nav__cta">Test gratuito →</a>
       </div>
     </div>
   </nav>
@@ -215,7 +219,7 @@
       <span class="cta-final__label">El siguiente paso</span>
       <h2>¿En qué <span class="cta-noche">color estás?<svg viewBox="0 0 260 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none"><path d="M2 7C55 2 160 1 258 5" stroke="#EA8672" stroke-width="2.8" stroke-linecap="round"/></svg></span></h2>
       <p class="cta-final__sub">El test gratuito te da una primera lectura de cómo está el vínculo en tu casa hoy — y te orienta sobre qué mirar con más calma.</p>
-      <a href="https://tally.so/r/LZvklp" target="_blank" rel="noopener" class="btn btn--primary btn--large">Haz el test gratuito (3 minutos) <span class="btn__arrow">→</span></a>
+      <a href="http://test.conectarconsentido.com/?utm_source=chatgpt.com" target="_blank" rel="noopener" class="btn btn--navy btn--large">Haz el test gratuito (3 minutos) <span class="btn__arrow">→</span></a>
       <p class="cta-final__micro">Te dice si lo que ves en casa es parte normal de la edad o si conviene mirar con más calma. Sin compromiso.</p>
     </div>
   </section>
@@ -250,6 +254,16 @@
         gsap.registerPlugin(ScrollTrigger);
         const d = rm ? 0.01 : 1;
 
+        // Las fuentes web (Fraunces/Inter) pueden terminar de cargar después del
+        // primer cálculo de posiciones de ScrollTrigger, corriendo el layout y
+        // dejando el trigger de la última sección (CTA final) desincronizado —
+        // eso hacía que el botón quedara con opacity:0 para siempre. Se recalcula
+        // apenas las fuentes están listas y al terminar de cargar la página.
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(() => ScrollTrigger.refresh());
+        }
+        window.addEventListener('load', () => ScrollTrigger.refresh());
+
         // PAGE HERO — entrada al cargar
         gsap.set('.page-hero__badge', { opacity: 0, x: rm ? 0 : -16 });
         gsap.set('.page-hero__title', { opacity: 0, y: rm ? 0 : 20 });
@@ -271,7 +285,9 @@
           scrollTrigger: { trigger: '.puente-nota', start: 'top 85%', once: true }
         });
 
-        // CTA FINAL — cascada
+        // CTA FINAL — cascada. El botón queda afuera a propósito: es el CTA
+        // principal de la página y no debe depender de que un ScrollTrigger
+        // dispare correctamente para ser visible.
         gsap.timeline({
           scrollTrigger: { trigger: '.cta-final', start: 'top 82%', once: true },
           defaults: { ease: 'power3.out' }
@@ -279,7 +295,6 @@
           .from('.cta-final__label', { opacity: 0, y: rm ? 0 : 14, duration: d * 0.5 })
           .from('.cta-final h2',     { opacity: 0, y: rm ? 0 : 20, duration: d * 0.6 }, rm ? 0 : '-=0.3')
           .from('.cta-final__sub',   { opacity: 0, y: rm ? 0 : 16, duration: d * 0.55 }, rm ? 0 : '-=0.35')
-          .from('.cta-final .btn',   { opacity: 0, y: rm ? 0 : 16, duration: d * 0.55, clearProps: 'transform' }, rm ? 0 : '-=0.35')
           .from('.cta-final__micro', { opacity: 0, duration: d * 0.5 }, rm ? 0 : '-=0.3');
 
         // CTA FINAL — trazo del subrayado bajo "color estás?"
