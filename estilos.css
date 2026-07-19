@@ -186,13 +186,13 @@ ul { list-style: none; }
 
 /* ---- FOOTER — versión compartida por servicios.html y recursos.html
        (index.html define su propia versión local, columna sobre fondo navy-deep) ---- */
-.footer { background: var(--color-navy); color: var(--color-crema); padding: clamp(2.5rem, 5vw, 3.5rem) 0; }
-.footer__grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; }
-.footer__logo img { height: 54px; width: auto; opacity: 0.95; filter: brightness(0) invert(1); }
-.footer__contacto { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.95rem; }
+.footer { background: var(--color-navy); color: var(--color-crema); padding: clamp(1.2rem, 2.4vw, 1.8rem) 0; }
+.footer__grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.65rem; }
+.footer__logo img { height: 35px; width: auto; opacity: 0.95; filter: brightness(0) invert(1); }
+.footer__contacto { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-size: 0.75rem; }
 .footer__contacto a { color: rgba(250, 246, 240, 0.85); }
 .footer__contacto a:hover { color: var(--color-coral); }
-.footer__nav { display: flex; gap: 1.25rem; font-size: 0.9rem; }
+.footer__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; font-size: 0.7rem; }
 .footer__nav a { color: rgba(250, 246, 240, 0.75); }
 .footer__nav a:hover { color: var(--color-coral); }
-.footer__credit { width: 100%; font-size: 0.8125rem; color: rgba(250, 246, 240, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.25rem; margin-top: 0.5rem; }
+.footer__credit { width: 100%; max-width: 480px; margin: 0.2rem auto 0; font-size: 0.6rem; color: rgba(250, 246, 240, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 0.65rem; text-align: center; }
