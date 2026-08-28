@@ -122,13 +122,8 @@ h3{
   transition:padding .25s,box-shadow .25s;
 }
 .site-header.scrolled{padding-top:.5rem;padding-bottom:.5rem;box-shadow:0 10px 30px rgba(30,45,61,.08)}
-.brand{display:flex;align-items:center;gap:.7rem;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1.2}
-.brand em{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:1.02rem;letter-spacing:.01em;text-transform:none;color:var(--teal)}
-.brand-mark{
-  display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;
-  background:var(--navy);color:var(--cream);
-  font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:600;
-}
+.brand{display:flex;align-items:center}
+.brand img{height:38px;width:auto;display:block}
 .site-header nav{display:flex;gap:1.9rem;font-size:.9rem;font-weight:700}
 .site-header nav a{position:relative;padding:.3rem 0}
 .site-header nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--coral);transition:width .25s}
@@ -489,7 +484,7 @@ footer h2{margin-top:.3rem}
   .resource-number{font-size:3.4rem}
   .actions{flex-direction:column;align-items:stretch}
   .actions .button{justify-content:center}
-  .brand em{font-size:.92rem}
+  .brand img{height:32px}
 }
 
 @media(prefers-reduced-motion:reduce){

@@ -11,7 +11,8 @@ carpeta) o a GitHub Pages.
 - `recursos.html` — recursos gratuitos
 - `styles.css` — sistema visual completo de las cuatro páginas
 - `motion.js` — menú móvil, header al scroll y revelado progresivo
-- `assets/logo_metodo_nido_transparente.png` — logo oficial, fondo transparente
+- `assets/logo-conectar-con-sentido.png` — logo de marca (header), fondo transparente
+- `assets/logo_metodo_nido_transparente.png` — logo Método NIDO, fondo transparente
 - `assets/carla-romo.png` — foto de Carla (sección "Sobre mí" del inicio)
 - `assets/fotoportada.png` — foto de portada (hero del inicio)
 - `assets/og.png` — imagen 1200×630 para compartir en redes (generada a partir del logo y la paleta)
