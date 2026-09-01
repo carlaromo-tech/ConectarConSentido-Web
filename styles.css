@@ -80,6 +80,13 @@ h3{
   font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
   color:var(--eyebrow,var(--teal));margin:0 0 1rem;line-height:1.4;
 }
+.eyebrow-lg{font-size:.85rem;font-weight:700;letter-spacing:.15em}
+.eyebrow-accent{
+  font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;
+  text-transform:none;letter-spacing:0;
+  font-size:clamp(1.4rem,1.1rem + 1.4vw,2.1rem);line-height:1.15;
+  color:var(--eyebrow,var(--coral));margin:0 0 1.4rem;
+}
 
 /* Bandas oscuras: invierten texto, líneas y eyebrow de una sola vez */
 .about,.resource-strip,.format-band,.closing-call,footer,
@@ -124,9 +131,12 @@ h3{
 .site-header.scrolled{padding-top:.5rem;padding-bottom:.5rem;box-shadow:0 10px 30px rgba(30,45,61,.08)}
 .brand{display:flex;align-items:center}
 .brand img{height:38px;width:auto;display:block}
-.site-header nav{display:flex;gap:1.9rem;font-size:.9rem;font-weight:700}
+.site-header nav{display:flex;align-items:center;gap:1.9rem;font-size:.9rem;font-weight:700}
 .site-header nav a{position:relative;padding:.3rem 0}
 .site-header nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--coral);transition:width .25s}
+.nav-home{display:inline-flex;align-items:center;color:var(--ink);transition:color .2s}
+.nav-home:hover{color:var(--coral)}
+.nav-home::after{content:none}
 .site-header nav a:hover::after,.site-header nav a.active::after{width:100%}
 .nav-contact{
   font-weight:800;font-size:.84rem;white-space:nowrap;
@@ -224,6 +234,7 @@ h3{
 .resource-strip{
   background:var(--teal-deep);padding:clamp(3rem,6vw,5rem) var(--pad);
   display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:end;
+  --eyebrow:var(--teal-mid);
 }
 .resource-strip h2{margin-top:.2rem}
 .resource-strip p{color:var(--muted)}
