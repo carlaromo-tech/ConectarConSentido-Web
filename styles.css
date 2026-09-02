@@ -80,12 +80,24 @@ h3{
   font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
   color:var(--eyebrow,var(--teal));margin:0 0 1rem;line-height:1.4;
 }
-.eyebrow-lg{font-size:.85rem;font-weight:700;letter-spacing:.15em}
+.eyebrow-serif{
+  font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;
+  text-transform:none;letter-spacing:0;
+  font-size:clamp(1rem,.9rem + .5vw,1.3rem);line-height:1.3;
+  color:var(--eyebrow,var(--teal));margin:0 0 .9rem;
+}
 .eyebrow-accent{
   font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;
   text-transform:none;letter-spacing:0;
   font-size:clamp(1.4rem,1.1rem + 1.4vw,2.1rem);line-height:1.15;
   color:var(--eyebrow,var(--coral));margin:0 0 1.4rem;
+}
+.eyebrow-badge{
+  display:inline-flex;align-items:center;
+  font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cream);background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.35);border-radius:999px;
+  padding:.4rem 1.1rem;margin:0 0 1.2rem;
 }
 
 /* Bandas oscuras: invierten texto, líneas y eyebrow de una sola vez */
@@ -234,7 +246,6 @@ h3{
 .resource-strip{
   background:var(--teal-deep);padding:clamp(3rem,6vw,5rem) var(--pad);
   display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:end;
-  --eyebrow:var(--teal-mid);
 }
 .resource-strip h2{margin-top:.2rem}
 .resource-strip p{color:var(--muted)}
