@@ -30,9 +30,23 @@
   }
 
   /* --- Header al hacer scroll ------------------------------------------- */
+  /* Se achica, se esconde al bajar, vuelve al subir y muestra cuánto se ha leído */
   const header = document.querySelector('.site-header');
+  const readingBar = document.createElement('i');
+  readingBar.className = 'reading-bar';
+  readingBar.setAttribute('aria-hidden', 'true');
+  header?.appendChild(readingBar);
+  let lastY = 0;
+
   window.addEventListener('scroll', () => {
-    header?.classList.toggle('scrolled', window.scrollY > 32);
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    readingBar.style.transform = `scaleX(${max > 0 ? (y / max).toFixed(4) : 0})`;
+    header?.classList.toggle('scrolled', y > 32);
+    const menuOpen = nav?.classList.contains('open');
+    if (y > lastY + 6 && y > 320 && !menuOpen) header?.classList.add('hidden');
+    else if (y < lastY - 6) header?.classList.remove('hidden');
+    lastY = y;
   }, { passive: true });
 
   /* --- Brillo de borde en tarjetas (sigue el cursor) ---------------------- */

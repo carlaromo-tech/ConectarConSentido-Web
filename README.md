@@ -10,7 +10,8 @@ carpeta) o a GitHub Pages.
 - `familias.html` — apoyo clínico para familias
 - `recursos.html` — recursos gratuitos
 - `styles.css` — sistema visual completo de las cuatro páginas
-- `motion.js` — menú móvil, header al scroll y revelado progresivo
+- `motion.js` — menú móvil, header al scroll (se esconde al bajar, barra de lectura) y revelado progresivo
+- `portada.js` — solo inicio: hilos dibujados a mano sobre la foto (Rough.js por CDN), profundidad al bajar y franja de frases
 - `assets/logo-conectar-con-sentido.png` — logo de marca (header), fondo transparente
 - `assets/logo_metodo_nido_transparente.png` — logo Método NIDO, fondo transparente
 - `assets/carla-romo.png` — foto de Carla (sección "Sobre mí" del inicio)
@@ -41,6 +42,8 @@ Todos los enlaces son relativos, así que funcionan igual en local y publicado.
 **Ritmo:** bandas alternadas oscuro/claro. El coral aparece solo en acciones.
 
 **Efectos:** los títulos (`h1`/`h2`) se revelan palabra por palabra al entrar en pantalla (ver `.split-word` en `styles.css` y el bloque "Titulos revelados por palabra" en `motion.js`). Respeta `prefers-reduced-motion`.
+
+En el inicio, `portada.js` dibuja dos hilos (coral y turquesa) que se entrelazan sobre la foto, con la nota manuscrita "¿tiene a quién contarle?" en Caveat. Los trazos usan coordenadas en píxeles de `assets/fotoportada.png` (1122 × 777): si se cambia la foto, hay que reubicarlos. Las frases que rotan bajo la portada están en el arreglo `PHRASES` de ese archivo.
 
 ## Para editar
 
