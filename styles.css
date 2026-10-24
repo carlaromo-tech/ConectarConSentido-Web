@@ -101,7 +101,7 @@ h3{
 }
 
 /* Bandas oscuras: invierten texto, líneas y eyebrow de una sola vez */
-.about,.resource-strip,.format-band,.closing-call,footer,
+.about,.resource-strip,.format-band,footer,
 .tone-green,.tone-terracotta,.school-card,.family-card{
   color:var(--cream);
   --eyebrow:var(--coral);
@@ -415,7 +415,7 @@ footer h2{margin-top:.3rem}
 
 /* --- Colegios: segunda mitad de la página ------------------------------------ */
 /* marcador coral que se pinta al aparecer la sección (motion.js pone .is-visible) */
-.lleva mark,.cierre-colegio mark{
+main mark{
   color:inherit;background:linear-gradient(transparent 58%,rgba(234,134,114,.38) 58%,rgba(234,134,114,.38) 92%,transparent 92%) no-repeat 0 0/0% 100%;
   transition:background-size 1s cubic-bezier(.65,0,.35,1) calc(.5s + var(--i,0) * .25s);padding:0 .08em;
 }
@@ -575,6 +575,59 @@ footer h2{margin-top:.3rem}
 .eval-nota{margin:0;max-width:52ch;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.1rem;color:var(--muted)}
 .service-grid .text-link{margin-top:1rem;align-self:flex-start;font-size:.88rem}
 
+/* --- Números en contorno (recursos) y piezas de familias -------------------- */
+.resource-number.num-contorno{color:transparent;-webkit-text-stroke:2px var(--coral);transition:color .3s}
+.featured-resource:hover .num-contorno,.guide-card:hover .num-contorno{color:var(--coral)}
+
+/* Cuándo pedir apoyo: las señales como etiquetas que aparecen una a una */
+.senales{align-items:center}
+.senales-nota{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.5rem;color:var(--teal);margin:1.6rem 0 .8rem;transform:rotate(-2deg);transform-origin:left}
+.senales-lista{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.senales-lista li{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.6rem 1.05rem;border-radius:999px;
+  background:var(--white);border:1px solid var(--line);box-shadow:0 6px 16px rgba(30,45,61,.06);
+  font-weight:700;font-size:.95rem;color:var(--navy);
+  opacity:0;transform:translateY(12px) rotate(var(--r,0deg));
+  transition:opacity .45s calc(.2s + var(--i) * .09s),transform .55s cubic-bezier(.34,1.56,.64,1) calc(.2s + var(--i) * .09s);
+}
+.senales-lista li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+.senales-lista li:nth-child(odd){--r:-1.2deg}
+.senales-lista li:nth-child(3n){--r:1.4deg}
+.senales-lista li:nth-child(even)::before{background:var(--coral)}
+.senales-lista li:last-child{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.senales-lista li:last-child::before{background:var(--white)}
+.is-visible .senales-lista li{opacity:1;transform:rotate(var(--r,0deg))}
+.senales-pie{margin-top:1.6rem;color:var(--muted);max-width:46ch}
+.senales .ilustra img{max-width:560px}
+
+/* Cómo podemos trabajar: números en contorno y la evaluación como primer paso */
+.service-grid>article{position:relative}
+.service-grid>article>span{font-size:2.6rem;line-height:.9;color:transparent;-webkit-text-stroke:1.5px var(--accent,var(--coral));transition:color .3s}
+.service-grid>article:hover>span{color:var(--accent,var(--coral))}
+.servicio-badge{position:absolute;top:1.6rem;right:1.4rem;font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-style:normal;font-size:1.3rem;color:var(--coral);transform:rotate(-4deg)}
+
+/* Recursos 01: la ficha del test, como una nota pegada */
+section.featured-resource{grid-template-columns:auto minmax(0,1fr) minmax(220px,300px);align-items:center}
+.test-ficha{background:var(--cream);border:1.5px dashed rgba(62,141,161,.45);border-radius:var(--radius);padding:1.4rem 1.6rem;transform:rotate(1.5deg);box-shadow:var(--shadow);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.test-ficha:hover{transform:rotate(0)}
+.test-ficha dl{margin:0;display:grid;gap:.4rem}
+.test-ficha dl>div{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+.test-ficha dt{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.35rem;color:var(--muted)}
+.test-ficha dd{margin:0;font:400 2.4rem/1 'Anton',sans-serif;background:linear-gradient(120deg,var(--teal),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.test-ficha p{margin:.9rem 0 0;font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.3rem;line-height:1.1;color:var(--coral)}
+
+/* Recursos 02: el 10 en grande y checks dibujados */
+.guide-card{position:relative;overflow:hidden;isolation:isolate}
+.guide-card::before{content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 35% 50% at 90% 20%,rgba(234,134,114,.2),transparent 70%)}
+.guia-diez{font:400 1.25em/.8 'Anton',sans-serif;background:linear-gradient(120deg,var(--teal),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:.1em}
+.guia-nota{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.45rem;color:var(--teal);margin:1rem 0 0;transform:rotate(-2deg);transform-origin:left}
+.guide-card .guia-lista{list-style:none;padding:0;margin:1.3rem 0 1.6rem;display:grid;gap:.75rem}
+.guia-lista li{display:grid;grid-template-columns:30px 1fr;gap:.8rem;align-items:start;margin:0;font-size:1.02rem;color:var(--navy)}
+.guia-lista li::before{
+  content:"";width:30px;height:30px;border-radius:50%;background:var(--coral) no-repeat center/16px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E");
+}
+
 /* --- La sigla NIDO sobre el anillo: cada letra abre su paso (nido.js) ------- */
 .nido-sigla{margin:0 0 clamp(2rem,4vw,3rem)}
 .sigla-pista{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.45rem;line-height:1.1;color:var(--coral);margin:0 0 .6rem;transform:rotate(-2deg);transform-origin:left}
@@ -643,7 +696,14 @@ footer h2{margin-top:.3rem}
 .listo .ritual-sig{display:inline-block}
 .ritual-sig:hover{color:var(--coral)}
 
-.closing-call{background:var(--navy);padding:clamp(3.5rem,6vw,5.5rem) var(--pad);text-align:center}
+.closing-call{background:var(--cream);padding:clamp(3.5rem,7vw,6rem) var(--pad);text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.closing-call::before{
+  content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 35% 50% at 15% 30%,rgba(62,141,161,.18),transparent 70%),radial-gradient(ellipse 35% 50% at 85% 75%,rgba(234,134,114,.24),transparent 70%);
+  animation:glow-breathe 10s ease-in-out infinite alternate;
+}
+.closing-call h2{font-size:clamp(2rem,1.4rem + 2.6vw,3.4rem)}
+.cierre-riesgo{max-width:70ch;margin:2.4rem auto 0;text-align:left;background:var(--white)}
 .closing-call h2{max-width:22ch;margin:0 auto}
 .closing-call p{max-width:56ch;margin:1.3rem auto 1.9rem;color:var(--muted)}
 
@@ -731,6 +791,8 @@ footer h2{margin-top:.3rem}
   .inner-ilustra{max-width:440px;margin-top:-1rem}
   .nido-heading{grid-template-columns:1fr}
   .lleva,.tono,.cierre-colegio{grid-template-columns:1fr}
+  section.featured-resource{grid-template-columns:1fr}
+  .test-ficha{max-width:320px}
   .lleva-head{position:static}
   .formato-datos{grid-template-columns:1fr;gap:1.6rem}
   .formato-datos>div{padding:0 0 0 1.2rem;border-left:1px solid var(--line-light)}
