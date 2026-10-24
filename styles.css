@@ -413,26 +413,102 @@ footer h2{margin-top:.3rem}
 .camino-panel .camino-llega{margin-top:.6rem;font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.55rem;line-height:1.1;color:var(--c)}
 .note{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.12rem;max-width:70ch;margin:2.6rem auto 0;text-align:center;color:var(--muted)}
 
-.large-list{list-style:none;margin:2.4rem 0 0;padding:0;counter-reset:item;border-top:1px solid var(--line)}
-.large-list li{
-  counter-increment:item;display:flex;gap:1.4rem;align-items:baseline;
-  padding:1.35rem 0;border-bottom:1px solid var(--line);
-  font-family:'Fraunces',Georgia,serif;font-size:clamp(1.15rem,1rem + .85vw,1.8rem);line-height:1.32;
+/* --- Colegios: segunda mitad de la página ------------------------------------ */
+/* marcador coral que se pinta al aparecer la sección (motion.js pone .is-visible) */
+.lleva mark,.cierre-colegio mark{
+  color:inherit;background:linear-gradient(transparent 58%,rgba(234,134,114,.38) 58%,rgba(234,134,114,.38) 92%,transparent 92%) no-repeat 0 0/0% 100%;
+  transition:background-size 1s cubic-bezier(.65,0,.35,1) calc(.5s + var(--i,0) * .25s);padding:0 .08em;
 }
-.large-list li::before{content:"0" counter(item);flex:none;font-family:'Anton',sans-serif;font-size:.82rem;color:var(--coral);letter-spacing:.06em}
+.is-visible mark{background-size:100% 100%}
 
-.format-band{background:var(--teal-deep);padding:clamp(3rem,6vw,5rem) var(--pad)}
-.format-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.7rem 0 2.3rem}
-.format-grid div{
-  padding:1.5rem;background:rgba(255,255,255,.08);border:1px solid var(--line-light);
-  border-top:3px solid var(--accent,var(--line-light));border-radius:var(--radius);
-  display:flex;flex-direction:column;gap:.35rem;
+/* Qué se llevan: números grandes en contorno que se llenan al pasar */
+.lleva{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.lleva-head{position:sticky;top:110px}
+.lleva-head h2{max-width:14ch}
+.lleva-nota{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.5rem;color:var(--teal);margin:1.2rem 0 0;transform:rotate(-3deg);transform-origin:left}
+.lleva-nota::before{content:"↳ "}
+.lleva-lista{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+.lleva-lista li{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2rem);align-items:center;
+  padding:clamp(1.1rem,2.5vw,1.7rem) clamp(1rem,2vw,1.5rem);border-radius:var(--radius);
+  transition:background .3s,transform .35s cubic-bezier(.22,1,.36,1);
 }
-.format-grid div:nth-child(1){--accent:var(--coral)}
-.format-grid div:nth-child(2){--accent:var(--rose)}
-.format-grid div:nth-child(3){--accent:var(--cream)}
-.format-grid strong{font-family:'Anton',sans-serif;font-weight:400;font-size:1.85rem;line-height:1.1;letter-spacing:.01em}
-.format-grid span{font-size:.85rem;color:var(--muted)}
+.lleva-lista li:hover{background:var(--white);transform:translateX(8px);box-shadow:var(--shadow)}
+.lleva-lista b{
+  font:400 clamp(3.2rem,2rem + 4vw,5.6rem)/.85 'Anton',sans-serif;letter-spacing:.02em;
+  min-width:1.15em;color:transparent;-webkit-text-stroke:1.5px var(--coral);transition:color .3s;
+}
+.lleva-lista li:hover b{color:var(--coral)}
+.lleva-lista p{margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(1.25rem,1rem + 1vw,1.85rem);line-height:1.3;color:var(--navy)}
+
+/* Formato: tres datos grandes, sin cajas */
+.format-band{background:var(--teal-deep);padding:clamp(3rem,6vw,5rem) var(--pad)}
+.formato{position:relative;overflow:hidden;isolation:isolate}
+.formato::before{
+  content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 40% 50% at 85% 20%,rgba(234,134,114,.28),transparent 70%),radial-gradient(ellipse 35% 45% at 10% 90%,rgba(62,141,161,.45),transparent 70%);
+  animation:glow-breathe 10s ease-in-out infinite alternate;
+}
+.formato-head h2{max-width:20ch;margin:.2rem 0 0;color:var(--cream)}
+.formato-datos{display:grid;grid-template-columns:repeat(3,1fr);margin:clamp(2rem,4vw,3rem) 0 clamp(2rem,4vw,2.8rem)}
+.formato-datos>div{padding:0 clamp(1rem,3vw,2.4rem);border-left:1px solid var(--line-light)}
+.formato-datos>div:first-child{padding-left:0;border-left:0}
+.formato-datos dt{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.45rem;color:var(--coral);line-height:1}
+.formato-datos dd{margin:.3rem 0 .5rem;display:flex;align-items:baseline;gap:.35rem}
+.formato-datos strong{
+  font:400 clamp(2.6rem,1.6rem + 3.6vw,5rem)/1 'Anton',sans-serif;letter-spacing:.01em;
+  background:linear-gradient(120deg,var(--cream) 40%,#F4B8A8);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.formato-datos dd span{font:400 clamp(1.2rem,1rem + 1vw,1.8rem)/1 'Anton',sans-serif;color:var(--coral)}
+.formato-datos p{margin:0;font-size:.92rem;color:var(--muted);max-width:24ch}
+
+/* El tono: tres capas de certeza, de lo que se sabe a lo que no */
+.tono{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:center;background:var(--white)}
+.tono-head h2{max-width:16ch}
+.tono-head p{color:var(--muted);max-width:44ch;margin-top:1rem}
+.tono-saber{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.tono-saber li{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:1.2rem 1.5rem;border-radius:var(--radius);border:2px solid var(--c);
+  transform:translateX(30px);opacity:0;transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .5s;
+}
+.tono.is-visible .tono-saber li{transform:none;opacity:1}
+.tono-saber li:nth-child(2){transition-delay:.15s}
+.tono-saber li:nth-child(3){transition-delay:.3s}
+.tono-saber span{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(1.15rem,1rem + .7vw,1.5rem)}
+.tono-saber small{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.3rem;line-height:1}
+.saber-si{--c:var(--teal);background:var(--teal);color:var(--white)}
+.saber-quiza{--c:var(--coral);background:repeating-linear-gradient(-45deg,#FDEEE9 0 10px,#FBE2DA 10px 20px);color:var(--navy)}
+.saber-quiza small{color:var(--coral)}
+.saber-no{--c:var(--rose);border-style:dashed;color:var(--navy);background:transparent}
+.saber-no small{color:var(--rose)}
+
+/* También trabajo: cinta de temas que corre sola */
+.temas{background:var(--navy);padding:clamp(1.6rem,3vw,2.2rem) 0;overflow:hidden;position:relative}
+.temas-nota{position:relative;z-index:1;margin:0 0 .6rem var(--pad);font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.45rem;color:var(--coral);transform:rotate(-2deg);transform-origin:left}
+.temas-pista{display:flex;width:max-content;animation:temas-corre 38s linear infinite}
+.temas:hover .temas-pista{animation-play-state:paused}
+.temas-pista ul{list-style:none;margin:0;padding:0;display:flex}
+.temas-pista li{
+  display:flex;align-items:center;white-space:nowrap;
+  font:400 clamp(2rem,1.4rem + 2.6vw,3.6rem)/1.1 'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em;color:var(--cream);
+}
+.temas-pista li:nth-child(even){color:transparent;-webkit-text-stroke:1.2px var(--cream)}
+.temas-pista li::after{content:"";width:12px;height:12px;margin:0 clamp(1.2rem,3vw,2.2rem);border-radius:50%;background:var(--coral);flex:none}
+@keyframes temas-corre{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .temas-pista{width:auto;flex-wrap:wrap;padding:0 var(--pad)}
+  .temas-pista ul{flex-wrap:wrap}
+  .temas-pista ul[aria-hidden]{display:none}
+  .temas-pista li{white-space:normal}
+}
+
+/* Cierre de colegios: acuarela y la pregunta final */
+.cierre-colegio{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.5rem,5vw,4rem);align-items:center;padding:clamp(3rem,6vw,5rem) var(--pad);background:var(--sand)}
+.cierre-colegio .ilustra{margin:0}
+.cierre-colegio .ilustra img{max-width:520px}
+.cierre-colegio h2{max-width:16ch}
+.cierre-colegio p{color:var(--muted);max-width:44ch;margin:1rem 0 1.8rem}
 
 .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:2.4rem 0}
 .service-grid article{
@@ -654,6 +730,12 @@ footer h2{margin-top:.3rem}
   .inner-hero.con-ilustra{grid-template-columns:1fr}
   .inner-ilustra{max-width:440px;margin-top:-1rem}
   .nido-heading{grid-template-columns:1fr}
+  .lleva,.tono,.cierre-colegio{grid-template-columns:1fr}
+  .lleva-head{position:static}
+  .formato-datos{grid-template-columns:1fr;gap:1.6rem}
+  .formato-datos>div{padding:0 0 0 1.2rem;border-left:1px solid var(--line-light)}
+  .formato-datos>div:first-child{padding-left:1.2rem;border-left:1px solid var(--line-light)}
+  .cierre-colegio .ilustra{order:2}
   .nido-heading img{max-width:300px}
   .ritual{grid-template-columns:1fr}
   .eval-hilos{display:none}
