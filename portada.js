@@ -29,6 +29,17 @@
       notaTam: 50,
       nota: [[1282, 222, '¿y en casa,'], [1290, 280, 'cómo lo'], [1300, 338, 'hablamos?']],
       flecha: ['M1292 362 C 1340 372, 1410 360, 1478 368']
+    },
+    // assets/familias-portada.jpg (1536 × 1024): la pregunta va en la puerta lisa;
+    // un hilo coral sale de ella y uno turquesa de la luz bajo la puerta
+    familias: {
+      hilos: [
+        ['M900 800 C 905 880, 820 930, 720 925 C 650 921, 640 880, 690 875 C 750 870, 745 950, 680 968 C 560 1000, 440 1000, 300 985', CORAL],
+        ['M1120 985 C 1000 1000, 860 960, 730 935 C 660 922, 655 880, 700 880 C 760 882, 740 960, 670 978 C 560 1005, 450 1010, 320 1000', TEAL]
+      ],
+      notaTam: 58,
+      nota: [[1082, 120, '¿en qué'], [1074, 186, 'momento'], [1092, 252, 'pasó?']],
+      flecha: ['M1090 276 C 1140 288, 1205 274, 1262 282']
     }
   };
   const svg = document.getElementById('hero-trazos');

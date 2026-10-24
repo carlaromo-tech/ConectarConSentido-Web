@@ -11,12 +11,12 @@ carpeta) o a GitHub Pages.
 - `recursos.html` — recursos gratuitos
 - `styles.css` — sistema visual completo de las cuatro páginas
 - `motion.js` — menú móvil, header al scroll (se esconde al bajar, barra de lectura) y revelado progresivo
-- `portada.js` — inicio y colegios: hilos dibujados a mano sobre la foto de portada (Rough.js por CDN), profundidad al bajar, franja de frases (inicio) y espectro de las cinco conversaciones (colegios)
+- `portada.js` — inicio, colegios y familias: hilos dibujados a mano sobre la foto de portada (Rough.js por CDN), profundidad al bajar, franja de frases (inicio) y espectro de las cinco conversaciones (colegios)
 - `assets/logo-conectar-con-sentido.png` — logo de marca (header), fondo transparente
 - `assets/logo_metodo_nido_transparente.png` — logo Método NIDO, fondo transparente
 - `assets/carla-romo.png` — foto de Carla (sección "Sobre mí" del inicio)
 - `assets/fotoportada.png` — foto de portada (hero del inicio)
-- `assets/colegios-portada.jpg` — foto de portada de colegios (imagen generada, ilustrativa)
+- `assets/colegios-portada.jpg`, `assets/familias-portada.jpg` — fotos de portada de colegios y familias (imágenes generadas, ilustrativas)
 - `assets/inicio-*.jpg`, `nido-*.jpg`, `familias-*.jpg`, `recursos-*.jpg` — acuarelas generadas para el resto de las secciones (originales en PNG en `Conectar con Sentido/Imagenes web originales`)
 - `assets/og.png` — imagen 1200×630 para compartir en redes (generada a partir del logo y la paleta)
 
@@ -47,7 +47,7 @@ Todos los enlaces son relativos, así que funcionan igual en local y publicado.
 
 En el inicio, `portada.js` dibuja dos hilos (coral y turquesa) que se entrelazan sobre la foto, con la nota manuscrita "¿tiene a quién contarle?" en Caveat. Los trazos usan coordenadas en píxeles de `assets/fotoportada.png` (1122 × 777): si se cambia la foto, hay que reubicarlos. Las frases que rotan bajo la portada están en el arreglo `PHRASES` de ese archivo.
 
-Cada portada elige su dibujo con `data-dibujo` en el `<svg id="hero-trazos">` (`inicio` o `colegios`); los trazos y la nota de cada una están en el objeto `DIBUJOS` de `portada.js`, en píxeles de su foto. En colegios la nota "¿y en casa, cómo lo hablamos?" va sobre el telón de `assets/colegios-portada.jpg` (1536 × 1024).
+Cada portada elige su dibujo con `data-dibujo` en el `<svg id="hero-trazos">` (`inicio`, `colegios` o `familias`); los trazos y la nota de cada una están en el objeto `DIBUJOS` de `portada.js`, en píxeles de su foto. En colegios la nota "¿y en casa, cómo lo hablamos?" va sobre el telón de `assets/colegios-portada.jpg` (1536 × 1024). En familias, "¿en qué momento pasó?" va sobre la puerta de `assets/familias-portada.jpg` (1536 × 1024) y el hilo turquesa sale de la luz bajo la puerta.
 
 ## Para editar
 
