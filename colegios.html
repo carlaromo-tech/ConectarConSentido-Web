@@ -72,20 +72,44 @@
 <section class="section-pad paper">
   <p class="eyebrow">Una forma de mirarlo</p>
   <h2>No todas las conversaciones con una IA significan lo mismo.</h2>
-  <div class="espectro" id="espectro" aria-hidden="true">
-    <span class="espectro-fin">la conversación con alguien se abre</span>
-    <div class="espectro-pista">
-      <svg id="espectro-linea" viewBox="0 0 1000 40" preserveAspectRatio="none"><defs><linearGradient id="espectro-color" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1000" y2="0"><stop offset="0" stop-color="#3E8DA1"/><stop offset=".55" stop-color="#EA8672"/><stop offset="1" stop-color="#E07688"/></linearGradient></defs></svg>
-      <i style="--x:10%;--d:.3s">01</i><i style="--x:30%;--d:.55s">02</i><i style="--x:50%;--d:.8s">03</i><i style="--x:70%;--d:1.05s">04</i><i style="--x:90%;--d:1.3s">05</i>
+  <div class="camino" id="camino">
+    <figure class="camino-mapa" hidden>
+      <svg viewBox="0 0 1000 300" role="img" aria-label="Diagrama: el recorrido de una conversación desde el adolescente, pasando por la IA, hasta alguien de confianza"></svg>
+    </figure>
+    <div class="camino-tabs" role="tablist" aria-label="Cinco formas en que la IA se relaciona con una conversación">
+      <button class="camino-tab" role="tab" id="uso-tab-1" aria-controls="uso-1" style="--c:var(--teal)"><b>01</b>Complementa</button>
+      <button class="camino-tab" role="tab" id="uso-tab-2" aria-controls="uso-2" style="--c:var(--teal-mid)"><b>02</b>Prepara</button>
+      <button class="camino-tab" role="tab" id="uso-tab-3" aria-controls="uso-3" style="--c:var(--coral)"><b>03</b>Facilita</button>
+      <button class="camino-tab" role="tab" id="uso-tab-4" aria-controls="uso-4" style="--c:var(--rose)"><b>04</b>Posterga</button>
+      <button class="camino-tab" role="tab" id="uso-tab-5" aria-controls="uso-5" style="--c:var(--teal-deep)"><b>05</b>Desplaza</button>
     </div>
-    <span class="espectro-fin">no llega a ocurrir</span>
-  </div>
-  <div class="five-grid">
-    <article><span>01</span><h3>Complementa</h3><p>Agrega información o una mirada más, sin reemplazar el vínculo con otras personas.</p></article>
-    <article><span>02</span><h3>Prepara</h3><p>Ayuda a ordenar lo que siente o encontrar palabras antes de hablar con alguien.</p></article>
-    <article><span>03</span><h3>Facilita</h3><p>El adolescente se siente más capaz de pedir ayuda o acercarse a una persona.</p></article>
-    <article><span>04</span><h3>Posterga</h3><p>Conversar con alguien se aplaza una y otra vez.</p></article>
-    <article><span>05</span><h3>Desplaza</h3><p>La conversación con una persona de confianza finalmente no ocurre.</p></article>
+    <div class="camino-detalle">
+      <article class="camino-panel" id="uso-1" role="tabpanel" aria-labelledby="uso-tab-1" style="--c:var(--teal)">
+        <h3><b>01</b> Complementa</h3>
+        <p>Agrega información o una mirada más, sin reemplazar el vínculo con otras personas.</p>
+        <p class="camino-llega">→ la conversación con alguien sigue su curso</p>
+      </article>
+      <article class="camino-panel" id="uso-2" role="tabpanel" aria-labelledby="uso-tab-2" style="--c:var(--teal-mid)">
+        <h3><b>02</b> Prepara</h3>
+        <p>Ayuda a ordenar lo que siente o a encontrar palabras antes de hablar con alguien.</p>
+        <p class="camino-llega">→ llega a alguien, con palabras</p>
+      </article>
+      <article class="camino-panel" id="uso-3" role="tabpanel" aria-labelledby="uso-tab-3" style="--c:var(--coral)">
+        <h3><b>03</b> Facilita</h3>
+        <p>El adolescente se siente más capaz de pedir ayuda o de acercarse a una persona.</p>
+        <p class="camino-llega">→ llega a alguien con más fuerza</p>
+      </article>
+      <article class="camino-panel" id="uso-4" role="tabpanel" aria-labelledby="uso-tab-4" style="--c:var(--rose)">
+        <h3><b>04</b> Posterga</h3>
+        <p>Conversar con alguien se aplaza una y otra vez.</p>
+        <p class="camino-llega">→ llega tarde, o a medias</p>
+      </article>
+      <article class="camino-panel" id="uso-5" role="tabpanel" aria-labelledby="uso-tab-5" style="--c:var(--teal-deep)">
+        <h3><b>05</b> Desplaza</h3>
+        <p>La conversación con una persona de confianza finalmente no ocurre.</p>
+        <p class="camino-llega">→ no llega a ocurrir</p>
+      </article>
+    </div>
   </div>
   <p class="note">No se trata de etiquetar el uso como bueno o malo, sino de preguntar qué ocurrió antes, durante y después.</p>
 </section>
@@ -141,6 +165,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
 <script src="portada.js"></script>
+<script src="camino.js"></script>
 <script src="motion.js"></script>
 </body>
 </html>

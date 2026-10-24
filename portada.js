@@ -201,43 +201,4 @@
     }
   }
 
-  /* --- Espectro (colegios): de "abre" a "no llega" la conversación con alguien --- */
-  /* Una línea hecha a mano que se traza al aparecer; los puntos 01–05 calzan con
-     las tarjetas de abajo. */
-  const espectro = document.getElementById('espectro');
-  const linea = document.getElementById('espectro-linea');
-
-  if (espectro && linea) {
-    const rc = window.rough ? window.rough.svg(linea) : null;
-    const d = 'M6 20 C 200 12, 420 28, 600 18 S 880 14, 994 20';
-    let path;
-    if (rc) {
-      path = rc.path(d, { stroke: TEAL, strokeWidth: 2.4, roughness: 1.1, bowing: .6, seed: 3 });
-    } else {
-      path = document.createElementNS(NS, 'path');
-      path.setAttribute('d', d);
-      path.setAttribute('fill', 'none');
-      path.setAttribute('stroke', TEAL);
-      path.setAttribute('stroke-width', 2.4);
-    }
-    linea.appendChild(path);
-    // el trazo cambia de turquesa a coral a medida que avanza
-    linea.querySelectorAll('path').forEach((p) => {
-      p.setAttribute('stroke', 'url(#espectro-color)');
-      p.setAttribute('vector-effect', 'non-scaling-stroke');
-    });
-
-    // se revela de izquierda a derecha (clip-path en styles.css) al entrar en pantalla
-    const show = () => espectro.classList.add('on');
-    if (reduced || !('IntersectionObserver' in window)) {
-      show();
-    } else {
-      const io = new IntersectionObserver((entries) => {
-        if (!entries[0].isIntersecting) return;
-        show();
-        io.disconnect();
-      }, { threshold: .4 });
-      io.observe(espectro);
-    }
-  }
 })();

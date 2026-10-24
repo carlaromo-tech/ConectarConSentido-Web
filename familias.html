@@ -89,11 +89,69 @@
     </div>
     <img src="assets/logo_metodo_nido_transparente.png" alt="Logo oficial del Método NIDO">
   </div>
-  <div class="nido-grid">
-    <article><figure><img src="assets/nido-notar.jpg" alt="Ilustración en acuarela: una madre respira tranquila en el living antes de acercarse" loading="lazy"></figure><b>N</b><small class="nido-min">1-2 min</small><h3>Nota tu estado</h3><p>Dejas el teléfono, respiras tres veces y te preguntas: ¿cómo estoy yo ahora? Este paso es para ti. Sin calma propia no hay conexión.</p></article>
-    <article><figure><img src="assets/nido-interpretar.jpg" alt="Ilustración en acuarela: una madre observa desde la puerta a su hijo que estudia" loading="lazy"></figure><b>I</b><small class="nido-min">1-2 min</small><h3>Interpreta sin juzgar</h3><p>Observas su rostro, su tono y su postura antes de hablar, y lo ubicas en el semáforo: rojo, amarillo o verde. Interpretar no es adivinar.</p></article>
-    <article><figure><img src="assets/nido-dialogo.jpg" alt="Ilustración en acuarela: una madre y su hijo conversan sentados en el suelo de la pieza" loading="lazy"></figure><b>D</b><small class="nido-min">5-6 min</small><h3>Diálogo o presencia</h3><p>Según el semáforo, preguntas, escuchas o simplemente estás a su lado sin exigir. Escuchas el 80% y hablas el 20%.</p></article>
-    <article><figure><img src="assets/nido-oportunidad.jpg" alt="Ilustración en acuarela: una madre se despide con la mano en el hombro de su hijo" loading="lazy"></figure><b>O</b><small class="nido-min">1 min</small><h3>Oportunidad de cierre</h3><p>Cierras con un gesto cálido, sin consejos de último momento, y dejas la puerta abierta: <em>"No importa si hoy no me hablas; voy a estar aquí si me necesitas."</em></p></article>
+  <div class="nido-sigla" id="nido-sigla">
+    <p class="sigla-pista">Toca cada letra para ver qué significa</p>
+    <ol class="sigla-letras" aria-label="Qué significa NIDO">
+      <li style="--c:var(--teal)"><button type="button" data-paso="0"><b>N</b><span>Nota tu estado</span></button></li>
+      <li style="--c:var(--teal-mid)"><button type="button" data-paso="1"><b>I</b><span>Interpreta sin juzgar</span></button></li>
+      <li style="--c:var(--coral)"><button type="button" data-paso="2"><b>D</b><span>Diálogo o presencia</span></button></li>
+      <li style="--c:var(--rose)"><button type="button" data-paso="3"><b>O</b><span>Oportunidad de cierre</span></button></li>
+    </ol>
+  </div>
+  <div class="ritual" id="ritual">
+    <figure class="ritual-reloj" hidden>
+      <svg viewBox="0 0 400 400" aria-hidden="true"></svg>
+      <div class="ritual-escena" aria-hidden="true">
+        <img src="assets/nido-notar.jpg" alt="" loading="lazy">
+        <img src="assets/nido-interpretar.jpg" alt="" loading="lazy">
+        <img src="assets/nido-dialogo.jpg" alt="" loading="lazy">
+        <img src="assets/nido-oportunidad.jpg" alt="" loading="lazy">
+      </div>
+      <div role="tablist" aria-label="Los cuatro pasos de los 10 minutos">
+        <button class="ritual-tab" role="tab" id="tab-n" aria-controls="paso-n" style="--x:67%;--y:16.6%;--c:var(--teal)">N</button>
+        <button class="ritual-tab" role="tab" id="tab-i" aria-controls="paso-i" style="--x:87%;--y:44.1%;--c:var(--teal-mid)">I</button>
+        <button class="ritual-tab" role="tab" id="tab-d" aria-controls="paso-d" style="--x:27.9%;--y:80.3%;--c:var(--coral)">D</button>
+        <button class="ritual-tab" role="tab" id="tab-o" aria-controls="paso-o" style="--x:38.4%;--y:14.3%;--c:var(--rose)">O</button>
+      </div>
+    </figure>
+
+    <div class="ritual-detalle">
+      <article class="ritual-panel" id="paso-n" role="tabpanel" aria-labelledby="tab-n" style="--c:var(--teal)">
+        <small class="nido-min">Paso 1 · 1-2 min</small>
+        <h3><b>N</b> Nota tu estado</h3>
+        <p>Antes de acercarte, te miras tú. Este paso es para ti, no para tu hijo: sin calma propia no hay conexión.</p>
+        <ul class="ritual-chips"><li>Teléfono fuera</li><li>Tres respiraciones</li><li>¿Cómo estoy yo ahora?</li></ul>
+        <button class="ritual-sig" type="button">Siguiente paso →</button>
+      </article>
+      <article class="ritual-panel" id="paso-i" role="tabpanel" aria-labelledby="tab-i" style="--c:var(--teal-mid)">
+        <small class="nido-min">Paso 2 · 1-2 min</small>
+        <h3><b>I</b> Interpreta sin juzgar</h3>
+        <p>Durante 30 a 60 segundos observas su rostro, su tono y su postura antes de hablar. Interpretar no es adivinar: es ubicar cómo viene en el semáforo.</p>
+        <ul class="semaforo">
+          <li style="--luz:#D9645A"><span><strong>Rojo · tensión, cierre, monosílabos.</strong> Presencia breve, sin preguntas: «No vengo a retarte. Estoy aquí.»</span></li>
+          <li style="--luz:#E8B84A"><span><strong>Amarillo · ambivalente, en la frontera.</strong> Le das el control: «¿Prefieres que me quede aquí o vuelvo en diez minutos?»</span></li>
+          <li style="--luz:#6AA67F"><span><strong>Verde · abierto, receptivo.</strong> Diálogo: escuchas más de lo que hablas.</span></li>
+        </ul>
+        <button class="ritual-sig" type="button">Siguiente paso →</button>
+      </article>
+      <article class="ritual-panel" id="paso-d" role="tabpanel" aria-labelledby="tab-d" style="--c:var(--coral)">
+        <small class="nido-min">Paso 3 · 5-6 min</small>
+        <h3><b>D</b> Diálogo o presencia</h3>
+        <p>Según el color del semáforo, preguntas, escuchas o simplemente estás a su lado sin exigir. La presencia constante es el mensaje.</p>
+        <div class="escucha" role="img" aria-label="Escuchas el 80 por ciento, hablas el 20 por ciento">
+          <span style="--w:80%">Escuchas 80%</span><span style="--w:20%">Hablas 20%</span>
+        </div>
+        <p class="escucha-pie">No corriges, no opinas, no resuelves. A veces un «ah» vale más que diez consejos.</p>
+        <button class="ritual-sig" type="button">Siguiente paso →</button>
+      </article>
+      <article class="ritual-panel" id="paso-o" role="tabpanel" aria-labelledby="tab-o" style="--c:var(--rose)">
+        <small class="nido-min">Paso 4 · 1 min</small>
+        <h3><b>O</b> Oportunidad de cierre</h3>
+        <p>Un gesto pequeño antes de salir, sin consejos de último momento, y avisas que vas a volver. No es presión: es continuidad.</p>
+        <p class="ritual-frase">«No importa si hoy no me hablas; voy a estar aquí si me necesitas.»</p>
+        <button class="ritual-sig" type="button">Volver al inicio →</button>
+      </article>
+    </div>
   </div>
   <p class="note">NIDO® no busca cambiar a tu hijo ni eliminar los conflictos propios de la adolescencia. La constancia de tu presencia es más poderosa que la perfección de tus palabras.</p>
 </section>
@@ -124,6 +182,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
 <script src="portada.js"></script>
+<script src="nido.js"></script>
 <script src="motion.js"></script>
 </body>
 </html>
