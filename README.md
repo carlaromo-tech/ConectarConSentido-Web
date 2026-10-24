@@ -14,6 +14,7 @@ carpeta) o a GitHub Pages.
 - `portada.js` — inicio, colegios y familias: hilos dibujados a mano sobre la foto de portada (Rough.js por CDN), profundidad al bajar y franja de frases (inicio)
 - `nido.js` — solo familias: anillo de los 10 minutos del Método NIDO (tramos proporcionales al tiempo de cada paso, acuarela al centro, detalle de cada paso con semáforo, 80/20 y frase de cierre). Un enlace como `familias.html#paso-d` abre ese paso
 - `camino.js` — solo colegios: diagrama "¿hasta dónde llega la conversación?" (adolescente → IA → alguien de confianza). Cada uno de los cinco usos (Complementa, Prepara, Facilita, Posterga, Desplaza) es un hilo distinto, definido en el arreglo `USOS`; en pantallas angostas el dibujo se gira a vertical
+- `evaluacion.js` — solo familias: línea de tiempo de la Evaluación Familiar del Adolescente (sesión 1 madre o padre y adolescente, sesión 2 el adolescente, sesión 3 devolución, informe con plan). Hilo coral = adulto, turquesa = hijo; en celular la línea es vertical y la dibuja el CSS
 - `assets/logo-conectar-con-sentido.png` — logo de marca (header), fondo transparente
 - `assets/logo_metodo_nido_transparente.png` — logo Método NIDO, fondo transparente
 - `assets/carla-romo.png` — foto de Carla (sección "Sobre mí" del inicio)
