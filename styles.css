@@ -101,7 +101,7 @@ h3{
 }
 
 /* Bandas oscuras: invierten texto, líneas y eyebrow de una sola vez */
-.about,.resource-strip,.format-band,footer,
+.resource-strip,.format-band,footer,
 .tone-green,.tone-terracotta,.school-card,.family-card{
   color:var(--cream);
   --eyebrow:var(--coral);
@@ -297,12 +297,35 @@ h3{
 .school-card{background:var(--navy)}
 .family-card{background:var(--teal-deep)}
 
-.about{background:var(--navy);display:grid;grid-template-columns:.55fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.about{background:var(--sand);display:grid;grid-template-columns:.55fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
 .about-photo{border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg)}
 .about-photo img{width:100%;aspect-ratio:.8;object-fit:cover;object-position:top center}
 .about h2{margin:.3rem 0 1.3rem}
 .about p{max-width:62ch;color:var(--muted)}
 .about .text-link{margin-top:1.6rem}
+.credenciales{list-style:none;margin:0 0 1.8rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.credenciales li{padding:.5rem .95rem;border-radius:999px;background:var(--white);border:1px solid var(--line);font-weight:700;font-size:.85rem;color:var(--navy)}
+.credenciales .cred-nido{background:linear-gradient(120deg,var(--teal),var(--coral));border-color:transparent;color:var(--white)}
+.trayectoria{display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2rem);align-items:center;padding-top:1.4rem;border-top:1px solid var(--line)}
+.trayectoria p{margin:0}
+.trayectoria-num{display:grid;justify-items:start}
+.trayectoria-num b{font:400 clamp(4rem,3rem + 4vw,6.5rem)/.85 'Anton',sans-serif;color:transparent;-webkit-text-stroke:2px var(--teal)}
+.trayectoria-num span{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.3rem;line-height:1.05;color:var(--teal);max-width:12ch;margin-top:.3rem}
+.about-photo{position:relative;transform:rotate(-2deg);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.about-photo:hover{transform:rotate(0)}
+
+/* Qué está pasando: del uso para estudiar al uso cuando "le pasa algo" */
+.usos-nota{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.45rem;line-height:1.1;color:var(--teal);margin:0 0 .7rem;transform:rotate(-2deg);transform-origin:left}
+.usos-nota-b{color:var(--coral);margin-top:1.4rem}
+.usos-lista{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.usos-lista li{
+  padding:.55rem 1rem;border-radius:999px;font-weight:700;font-size:.92rem;
+  opacity:0;transform:translateY(10px);transition:opacity .45s calc(.2s + var(--i) * .1s),transform .5s cubic-bezier(.34,1.56,.64,1) calc(.2s + var(--i) * .1s);
+}
+.usos-estudio li{border:1.5px solid var(--teal);color:var(--teal);background:transparent}
+.usos-vida li{background:var(--coral);color:var(--white)}
+.is-visible .usos-lista li{opacity:1;transform:none}
+.usos-pregunta{margin:1.8rem 0 1.2rem;font-family:'Fraunces',Georgia,serif;font-size:clamp(1.25rem,1rem + 1vw,1.7rem);line-height:1.3;color:var(--navy)}
 
 .resource-strip{
   background:var(--teal-deep);padding:clamp(3rem,6vw,5rem) var(--pad);
@@ -311,6 +334,17 @@ h3{
 .resource-strip h2{margin-top:.2rem}
 .resource-strip p{color:var(--muted)}
 .resource-strip .button{margin-top:.6rem}
+.resource-strip{position:relative;overflow:hidden;isolation:isolate}
+.resource-strip::before{
+  content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 40% 55% at 90% 15%,rgba(234,134,114,.3),transparent 70%),radial-gradient(ellipse 35% 45% at 5% 95%,rgba(62,141,161,.5),transparent 70%);
+  animation:glow-breathe 10s ease-in-out infinite alternate;
+}
+.strip-nota{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.45rem;line-height:1.15;color:var(--coral);margin:1rem 0 0;max-width:30ch;transform:rotate(-1.5deg);transform-origin:left}
+.strip-datos{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(1.4rem,4vw,3rem);margin:0 0 1.6rem}
+.strip-datos>div{display:grid;justify-items:start}
+.strip-datos dd{margin:0;font:400 clamp(3.2rem,2.2rem + 3.5vw,5.4rem)/.9 'Anton',sans-serif;background:linear-gradient(120deg,var(--cream) 40%,#F4B8A8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.strip-datos dt{font-family:'Caveat','Segoe Print',cursive;font-weight:700;font-size:1.35rem;color:var(--cream);opacity:.85}
 
 footer{
   background:var(--navy-deep);padding:clamp(3.5rem,6vw,5.5rem) var(--pad) 2rem;
