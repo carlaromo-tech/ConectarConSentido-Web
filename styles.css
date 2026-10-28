@@ -170,11 +170,6 @@ h3{
 /* Texto sobre crema a la izquierda; la foto se disuelve hacia él y encima se
    dibujan a mano dos hilos (coral y turquesa) que se entrelazan (portada.js). */
 .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);background:var(--cream);position:relative;overflow:hidden;isolation:isolate}
-.hero::before{
-  content:"";position:absolute;top:-18%;left:32%;width:560px;height:560px;max-width:60vw;
-  background:url('assets/logo_metodo_nido_transparente.png') no-repeat center/contain;
-  opacity:.07;pointer-events:none;transform:rotate(-4deg);
-}
 /* fondo que respira: dos luces suaves, turquesa y coral */
 .hero-glow{
   position:absolute;inset:-10%;z-index:-1;pointer-events:none;
@@ -188,8 +183,7 @@ h3{
   0%{transform:scale(1);opacity:.55}
   100%{transform:scale(1.06);opacity:1}
 }
-/* inicio: sin marca de agua; firma con foto, nombre y credencial sobre el titular */
-.hero-inicio::before{content:none}
+/* firma con foto, nombre y credencial sobre el titular (inicio, colegios, familias) */
 .nowrap{white-space:nowrap}
 .firma{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
 .firma-foto{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;flex:none;box-shadow:0 0 0 3px var(--cream),0 0 0 5px var(--coral)}
